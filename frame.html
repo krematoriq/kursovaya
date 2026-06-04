@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Краснокнижные животные | Вологодская область</title>
+</head>
+
+<!-- 
+    ФРЕЙМЫ
+    noresize — фиксированная граница (нельзя изменить размер)
+    без noresize — подвижная граница
+-->
+
+<frameset rows="120, *" frameborder="1" border="3" bordercolor="#2c5f2d">
+    
+    <!-- ВЕРХНИЙ ФРЕЙМ — ШАПКА (фиксированный) -->
+    <frame src="frame_header.html" name="header" scrolling="no" noresize>
+    
+    <!-- ОСНОВНАЯ ЧАСТЬ: два столбца (подвижная граница) -->
+    <frameset cols="280, *" frameborder="1" border="2" bordercolor="#8B0000">
+        
+        <!-- ЛЕВЫЙ ФРЕЙМ — КНОПКИ С ИМЕНАМИ (фиксированный) -->
+        <frame src="frame_buttons.html" name="buttons" noresize>
+        
+        <!-- ПРАВЫЙ ФРЕЙМ — ТЕКСТ ПРО ЖИВОТНОЕ (подвижный) -->
+        <frame src="frame_text_capybara.html" name="content" scrolling="auto">
+        
+    </frameset>
+    
+</frameset>
+
+<!-- Запасной текст для браузеров без поддержки фреймов -->
+<noframes>
+    <body>
+        <p>Ваш браузер не поддерживает фреймы. Перейдите на <a href="frame_text_capybara.html">страницу с текстом</a>.</p>
+    </body>
+</noframes>
+</html>

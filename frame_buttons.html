@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background: #f0f7e8;
+            padding: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h3 {
+            color: #2c5f2d;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 20px;
+            border-bottom: 2px solid #bc9a6c;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 250px;
+        }
+        
+   
+        .name-btn {
+            padding: 18px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .name-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .name-btn:active {
+            transform: translateY(2px);
+        }
+        
+
+        .andrey-btn {
+            background: linear-gradient(135deg, #1e3a5f, #0d2b45);
+            color: white;
+            border: 2px solid #4c9aff;
+        }
+        
+        .andrey-btn:hover {
+            background: linear-gradient(135deg, #254a77, #123456);
+            box-shadow: 0 5px 15px rgba(76, 154, 255, 0.3);
+        }
+        
+ 
+        .kirill-btn {
+            background: linear-gradient(135deg, #4a3a1a, #3a2a0d);
+            color: white;
+            border: 2px solid #e7b874;
+        }
+        
+        .kirill-btn:hover {
+            background: linear-gradient(135deg, #5e4a24, #4a3512);
+            box-shadow: 0 5px 15px rgba(231, 184, 116, 0.3);
+        }
+        
+        .nastya-btn {
+            background: linear-gradient(135deg, #2c5f2d, #1a4a1a);
+            color: white;
+            border: 2px solid #6aaa6a;
+        }
+        
+        .nastya-btn:hover {
+            background: linear-gradient(135deg, #3a753a, #246024);
+            box-shadow: 0 5px 15px rgba(106, 170, 106, 0.3);
+        }
+        
+ 
+        
+        hr {
+            margin: 20px 0;
+            border-color: #dee6df;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>🐾 КТО РАССКАЖЕТ?</h3>
+    
+    <div class="button-container">
+        
+        <button class="name-btn andrey-btn" onclick="changeContent('white_owl')">
+            Андрей
+        </button>
+        
+        <button class="name-btn kirill-btn" onclick="changeContent('samoyed')">
+            Кирилл
+        </button>
+        
+        <button class="name-btn nastya-btn" onclick="changeContent('capybara')">
+            Настя
+        </button>
+        
+    </div>
+    
+    <hr>
+    
+  <script>
+    function changeContent(animal) {
+        let frame = window.parent.frames['content'];
+        if (animal === 'white_owl') {
+            frame.location.href = 'frame_text_white_owl.html';
+        } else if (animal === 'samoyed') {
+            frame.location.href = 'frame_text_samoyed.html';
+        } else if (animal === 'capybara') {
+            frame.location.href = 'frame_text_capybara.html';
+        }
+    }
+</script>
+
+</body>
+</html>

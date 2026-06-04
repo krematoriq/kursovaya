@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Краснокнижные животные | Защита природы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7f2;   /* нежный природный фон */
+            color: #1e2f2b;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        
+        .site-header {
+            background: linear-gradient(135deg, #1a3a2e 0%, #0e2c21 100%);
+            color: #f9e7c2;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #e7b874;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .brand-icon {
+            font-size: 2.2rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+            color: #ffd966;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(120deg, #f9e7c2, #e7cfa1);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        }
+
+        .site-sub {
+            font-size: 0.9rem;
+            background: rgba(255, 230, 170, 0.18);
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            font-weight: 400;
+        }
+
+      
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        .nav-links a {
+            color: #f2e0b0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            color: #ffefb9;
+            border-bottom-color: #e7b874;
+        }
+
+       
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 2rem 2rem;
+        }
+
+       
+        .hero-note {
+            background: #e6f0ea;
+            border-left: 8px solid #bc9a6c;
+            border-radius: 28px;
+            padding: 1.4rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.03);
+        }
+        .hero-note p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1e3a2f;
+        }
+        .hero-note i {
+            margin-right: 10px;
+            color: #b47c48;
+        }
+
+        
+        .animals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+       
+        .animal-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0, 20, 10, 0.1);
+            transition: all 0.25s ease;
+            cursor: default;
+            border: 1px solid #dee6df;
+        }
+        .animal-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #d9dfd4;
+            display: block;
+            transition: 0.3s;
+        }
+       
+        .card-img[alt] {
+            background: linear-gradient(145deg, #bec9b2, #a9b69b);
+        }
+
+        .card-content {
+            padding: 1.5rem 1.3rem 1.8rem;
+        }
+        .animal-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .animal-name span {
+            background: #fdefc3;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #744e28;
+            letter-spacing: 0.3px;
+        }
+        .latin {
+            font-style: italic;
+            color: #5f7b6e;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            border-left: 2px solid #c2b280;
+            padding-left: 10px;
+        }
+        .description {
+            color: #2c423b;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            margin-bottom: 1rem;
+        }
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fef1df;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #a4551a;
+            margin-top: 8px;
+        }
+        .status i {
+            font-size: 0.9rem;
+        }
+
+       
+        .footer {
+            background: #1f2e28;
+            color: #cfdec6;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #3f584b;
+        }
+        .footer a {
+            color: #ffdeae;
+            text-decoration: none;
+        }
+        .footer i {
+            margin: 0 4px;
+        }
+	img{
+	     padding: 20px;
+	     margin-left: 150px; 
+	     margin-right: 150px;
+	     margin-top: 15px;  
+		}
+
+            .nav-links {
+                margin-top: 5px;
+                gap: 1rem;
+            }
+            .container {
+                padding: 0 1rem 2rem;
+            }
+            .hero-note p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-container">
+        <div class="brand">
+            <i class="fas fa-paw brand-icon"></i>
+            <h1 class="site-title">Краснокнижные животные</h1>
+		<div class="site-sub">Вологодская область</div>
+        </div>
+        <div class="nav-links">
+            <a href="о нас.html"> О нас</a>
+            <a href="#"> Помощь</a>
+	    <a href="#"> Помощь</a>
+	    <a href="#"> Помощь</a>
+        </div>
+    </div>
+</header>
+    <strong>🐾 Вологодская область</strong> хранит в своих лесах и реках настоящую сказку. Здесь можно встретить зверя, которого не увидишь больше нигде. 
+        <em>Лоси</em> бродят по болотам, <em>куницы</em> прыгают по ветвям, а по ночам бесшумно охотится <em>рысь</em>. 
+        Мы выросли с мыслью, что эти звери были, есть и будут всегда. Но последние десятилетия раз за разом напоминают: 
+        <strong style="color: #8B0000;">их становится меньше</strong>. Красная книга пополняется. И когда читаешь её страницы, понимаешь — это не просто сухие строчки. 
+        <strong style="color: #8B0000;">Это боль нашего края.</strong> И мы ещё успеваем сделать так, чтобы боль не стала прощанием.
+    </p>
+ <details style="background: white; padding: 15px 20px; border-radius: 20px; margin: 20px 0; border: 1px solid #dee6df;">
+        <summary style="font-weight: bold; font-size: 18px; color: #8B0000; cursor: pointer;">
+            📖 Знаете ли вы?
+        </summary>
+        <p style="margin-top: 15px; font-size: 16px; line-height: 1.5;">
+            В Красную книгу Вологодской области занесено <strong>153 вида животных</strong>. 
+            Среди них — <strong>13 видов млекопитающих</strong>, <strong>48 видов птиц</strong> и <strong>6 видов рептилий</strong>.
+        </p>
+    </details>
+<p style="font-size: 18px; line-height: 1.6; color: #333;">
+        <strong>❓ Какой мир вам открыть первым?</strong> Острые клыки и бесшумные лапы — или мягкие губы, жующие траву, и настороженные уши? 
+        Хищники и травоядные живут по разным правилам, но их объединяет одно — <strong style="color: #8B0000;">Красная книга</strong>. 
+        Решайте, с кем познакомиться ближе. Нажмите на ту картинку, которая вам ближе. </p>
+<div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin: 30px 0;">
+    
+    <div style="text-align: center;">
+	<a href="хищники.html">
+        <img src="325991.jpg" alt="хищники" width="600" height="600" style="border-radius: 20px;">
+	</a>
+        <p style="margin-top: 12px; font-size: 18px; font-weight: bold; color: #8B0000;">
+            🐾 ХИЩНИКИ
+        </p>
+        <p style="font-size: 14px; color: #666;">Острые клыки · Бесшумные лапы</p>
+    </div>
+    
+    <div style="text-align: center;">
+	<a href="травоядные.html">
+        <img src=" pngtree-high-quality-transparent-wildlife-clipart-for-creative-designs-png-image_14695663.png" alt="травоядные" width="600" height="600" style="border-radius: 20px;">
+        </a>
+        <p style="margin-top: 12px; font-size: 18px; font-weight: bold; color: #2c5f2d;">
+            🌿 ТРАВОЯДНЫЕ
+        </p>
+        <p style="font-size: 14px; color: #666;">Мягкие губы · Настороженные уши</p>
+    </div>
+   
+</div>
+</body>
+</html>
